@@ -1,6 +1,6 @@
 # firefly-db
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Installs a postgres db for Firefly III
 
@@ -31,12 +31,13 @@ storage:
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| backup.enabled | bool | `true` | Set to false to disable the backup and restore functionality |
 | backup.destination | string | `"http"` |  |
 | backup.pvc.accessModes | string | `"ReadWriteOnce"` |  |
 | backup.pvc.class | string | `nil` |  |
 | backup.pvc.dataSize | string | `"1Gi"` |  |
 | backup.pvc.existingClaim | string | `""` | Use an existing PersistentVolumeClaim, overrides values above |
-| backupSchedule | string | `"0 3 * * *"` |  |
+| backup.schedule | string | `"0 3 * * *"` |  |
 | configs.BACKUP_URL | string | `""` |  |
 | configs.DBHOST | string | `"firefly-firefly-db"` |  |
 | configs.DBNAME | string | `"firefly"` |  |
@@ -47,7 +48,7 @@ storage:
 | configs.POSTGRES_PASSWORD | string | `""` |  |
 | configs.POSTGRES_USER | string | `"firefly"` |  |
 | configs.RESTORE_URL | string | `""` |  |
-| configs.TZ | string | `"Europe/Amsterdan"` |  |
+| configs.TZ | string | `"Europe/Amsterdam"` |  |
 | configs.existingSecret | string | `""` | Set this to the name of a secret to load environment variables from. If defined, values in the secret will override values in configs |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"postgres"` |  |

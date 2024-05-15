@@ -16,8 +16,8 @@ Installs Firefly III stack (db, app, importer)
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://firefly-iii.github.io/kubernetes/ | firefly-db | 0.1.0 |
-| https://firefly-iii.github.io/kubernetes/ | firefly-iii | 1.4.0 |
+| https://firefly-iii.github.io/kubernetes/ | firefly-db | 0.2.2 |
+| https://firefly-iii.github.io/kubernetes/ | firefly-iii | 1.8.1 |
 | https://firefly-iii.github.io/kubernetes/ | importer | 1.3.1 |
 
 ## Upgrading
@@ -96,7 +96,7 @@ For every dependency, replace `repository: https://firefly-iii.github.io/kuberne
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| firefly-db.backupSchedule | string | `"0 3 * * *"` |  |
+| firefly-db.backup.schedule | string | `"0 3 * * *"` |  |
 | firefly-db.configs.BACKUP_URL | string | `""` |  |
 | firefly-db.configs.DBHOST | string | `"firefly-firefly-db"` |  |
 | firefly-db.configs.DBNAME | string | `"firefly"` |  |
