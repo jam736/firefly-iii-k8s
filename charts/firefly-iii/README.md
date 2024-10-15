@@ -15,7 +15,7 @@ Installs Firefly III
 
 ## Setting environment variables from additional ConfigMaps and Secrets
 
-This enables a simplified syntax to set envirnoment variables from a ConfigMap or Secret:
+This enables a simplified syntax to set environment variables from a ConfigMap or Secret:
 
 ```yaml
 envValueFrom:
@@ -115,7 +115,11 @@ ingress:
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"fireflyiii/core"` |  |
+<<<<<<< HEAD
 | image.tag | string | `""` | Overrides the image tag whose default is the chart appVersion. |
+=======
+| image.tag | string | `"version-6.1.21"` |  |
+>>>>>>> 32ba095 (Bump core and data-importer versions)
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
