@@ -27,15 +27,11 @@ spec:
         {{- if not .Values.configs.existingSecret }}
         - configMapRef:
             name: {{ template "firefly-db.fullname" . }}-config
-<<<<<<< HEAD
         {{- else }}
         - secretRef:
             name: {{ .Values.configs.existingSecret }}
         {{- end }}
         command: 
-=======
-        command:
->>>>>>> c738459 (Add disable option for backup and restore jobs.)
         - /bin/sh
         - -c
         - |
