@@ -24,9 +24,14 @@ spec:
         image: alpine:3.13
         imagePullPolicy: IfNotPresent
         envFrom:
+        {{- if not .Values.configs.existingSecret }}
         - configMapRef:
             name: {{ template "firefly-db.fullname" . }}-config
-        command:
+        {{- else }}
+        - secretRef:
+            name: {{ .Values.configs.existingSecret }}
+        {{- end }}
+        command: 
         - /bin/sh
         - -c
         - |
