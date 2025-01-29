@@ -17,7 +17,7 @@ firefly-iii:
       DB_USERNAME: firefly
       TZ: US/Eastern
   image:
-    tag: version-6.1.15
+    tag: version-6.1.25
   ingress:
     enabled: true
     hosts:
@@ -31,7 +31,7 @@ importer:
     env:
       TZ: US/Eastern
   image:
-    tag: version-1.5.2
+    tag: version-1.5.7
   ingress:
     enabled: true
     hosts:
