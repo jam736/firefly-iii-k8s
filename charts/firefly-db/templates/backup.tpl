@@ -2,23 +2,27 @@
 spec:
   containers:
   - name: {{ template "firefly-db.fullname" . }}-backup-job
-    image: alpine:3.13
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
     imagePullPolicy: IfNotPresent
     envFrom:
+    {{- if not .Values.configs.existingSecret }}
     - configMapRef:
         name: {{ template "firefly-db.fullname" . }}-config
+    {{- else }}
+    - secretRef:
+        name: {{ .Values.configs.existingSecret }}
+    {{- end }}
     command:
     - /bin/sh
     - -c
     - |
       set -e
-      apk update
-      apk add curl
-      apk add postgresql
       echo "creating backup file"
       pg_dump -h $DBHOST -p $DBPORT -U $DBUSER --format=p --clean -d $DBNAME > /var/lib/backup/$DBNAME.sql
       ls -la
       {{- if eq .Values.backup.destination "http" }}
+      apk update
+      apk add curl
       echo "uploading backup file"
       curl -F "filename=@/var/lib/backup/${DBNAME}.sql" $BACKUP_URL
       {{- end }}
