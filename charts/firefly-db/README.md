@@ -57,3 +57,4 @@ storage:
 | storage.class | string | `nil` |  |
 | storage.dataSize | string | `"1Gi"` |  |
 | storage.existingClaim | string | `""` | Use an existing PersistentVolumeClaim, overrides values above |
+| nodeSelector | object | `{}` |  |
