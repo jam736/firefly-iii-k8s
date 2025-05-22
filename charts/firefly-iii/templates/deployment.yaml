@@ -38,8 +38,10 @@ spec:
         securityContext:
           {{- toYaml . | nindent 12 }}
         {{- end }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        {{- with .Values.image }}
+        image: "{{ coalesce $.Values.global.image.registry .registry }}/{{ .repository }}:{{ .tag | default (printf "version-%s" $.Chart.AppVersion) }}"
+        imagePullPolicy: {{ coalesce $.Values.global.image.pullPolicy .pullPolicy }}
+        {{- end }}
         {{- if or .Values.config.envValueFrom }}
         env:
         {{- range $key, $value := .Values.config.envValueFrom }}
@@ -78,20 +80,18 @@ spec:
             containerPort: 8080
             protocol: TCP
         livenessProbe:
-          httpGet:
-            path: /health
-            port: http
+          {{- with .Values.livenessProbe }}
+            {{- toYaml . | nindent 10 }}
+          {{- end }}
         readinessProbe:
-          httpGet:
-            path: /health
-            port: http
+          {{- with .Values.readinessProbe }}
+            {{- toYaml . | nindent 10 }}
+          {{- end }}
         startupProbe:
-          httpGet:
-            path: /health
-            port: http
-          # Give the app 30 x 10 = 300s to startup
-          failureThreshold: 30
-          periodSeconds: 10
+          {{- with .Values.startupProbe }}
+            {{- toYaml . | nindent 10 }}
+          {{- end }}
+
         {{- with .Values.resources }}
         resources:
           {{- toYaml . | nindent 12 }}

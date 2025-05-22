@@ -1,6 +1,6 @@
 # firefly-db
 
-![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.2.7](https://img.shields.io/badge/Version-0.2.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Installs a postgres db for Firefly III
 
@@ -31,8 +31,8 @@ storage:
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| backup.enabled | bool | `true` | Set to false to disable the backup and restore functionality |
 | backup.destination | string | `"http"` |  |
+| backup.enabled | bool | `true` |  |
 | backup.pvc.accessModes | string | `"ReadWriteOnce"` |  |
 | backup.pvc.class | string | `nil` |  |
 | backup.pvc.dataSize | string | `"1Gi"` |  |
