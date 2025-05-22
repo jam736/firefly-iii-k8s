@@ -67,3 +67,18 @@ OK that was a joke. If you feel Firefly III made your life better, please consid
 
 <!-- END OF SPONSOR TEXT -->
 
+## Manual Backup and Restore
+```postgres
+# Backup
+kubectl exec -i $(kubectl get pod -l pod-label=hl-fireflyiii-firefly-db-pod -o name) -- pg_dump -U firefly -F c firefly > ~/firefly_db_backup_$(date +%Y%m%d%H%M%S).tar
+
+NOTE:
+ -F = format 
+   c = custom; needed for using pg_restore
+
+# Restore
+kubectl exec -i $(kubectl get pod -l pod-label=hl-fireflyiii-firefly-db-pod -o name) -- pg_restore -U firefly -d firefly -c < ~/firefly_db_backup.tar
+
+NOTE:
+  -c = clean (drop) database objects before recreating them
+```
