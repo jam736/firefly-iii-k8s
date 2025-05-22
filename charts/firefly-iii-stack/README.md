@@ -96,21 +96,7 @@ For every dependency, replace `repository: https://firefly-iii.github.io/kuberne
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| firefly-db.backup.schedule | string | `"0 3 * * *"` |  |
-| firefly-db.configs.BACKUP_URL | string | `""` |  |
-| firefly-db.configs.DBHOST | string | `"firefly-firefly-db"` |  |
-| firefly-db.configs.DBNAME | string | `"firefly"` |  |
-| firefly-db.configs.DBPORT | string | `"5432"` |  |
-| firefly-db.configs.DBUSER | string | `"firefly"` |  |
 | firefly-db.configs.PGPASSWORD | string | `"YOURDBPASSWORD"` |  |
-| firefly-db.configs.RESTORE_URL | string | `""` |  |
-| firefly-db.configs.TZ | string | `"Europe/Berlin"` |  |
 | firefly-db.enabled | bool | `true` |  |
-| firefly-db.image.pullPolicy | string | `"IfNotPresent"` |  |
-| firefly-db.image.repository | string | `"postgres"` |  |
-| firefly-db.image.tag | string | `"10-alpine"` |  |
-| firefly-db.storage.accessModes | string | `nil` |  |
-| firefly-db.storage.class | string | `nil` |  |
-| firefly-db.storage.dataSize | string | `"1Gi"` |  |
 | firefly-iii.enabled | bool | `true` | Set to false to not deploy Firefly III |
 | importer.enabled | bool | `true` | Set to false to not deploy the importer |

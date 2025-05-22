@@ -31,8 +31,8 @@ storage:
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| backup.enabled | bool | `true` | Set to false to disable the backup and restore functionality |
 | backup.destination | string | `"http"` |  |
+| backup.enabled | bool | `true` |  |
 | backup.pvc.accessModes | string | `"ReadWriteOnce"` |  |
 | backup.pvc.class | string | `nil` |  |
 | backup.pvc.dataSize | string | `"1Gi"` |  |
@@ -53,7 +53,6 @@ storage:
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"postgres"` |  |
 | image.tag | string | `"10-alpine"` |  |
-| nodeSelector | object | `{}` |  |
 | storage.accessModes | string | `"ReadWriteOnce"` |  |
 | storage.class | string | `nil` |  |
 | storage.dataSize | string | `"1Gi"` |  |
