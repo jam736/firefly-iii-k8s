@@ -48,11 +48,7 @@ When a release introduces breaking changes, this section outlines the manual act
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"fireflyiii/data-importer"` |  |
-<<<<<<< HEAD
 | image.tag | string | `"version-1.6.2"` |  |
-=======
-| image.tag | string | `"version-1.5.6"` |  |
->>>>>>> 32ba095 (Bump core and data-importer versions)
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` |  |
