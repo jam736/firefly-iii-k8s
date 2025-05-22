@@ -11,11 +11,11 @@ dependencies:
     condition: firefly-db.enabled
     repository: https://firefly-iii.github.io/kubernetes/
   - name: firefly-iii
-    version: 1.9.3
+    version: 1.9.4
     condition: firefly-iii.enabled
     repository: https://firefly-iii.github.io/kubernetes/
   - name: importer
-    version: 1.4.1
+    version: 1.4.2
     condition: importer.enabled
     repository: https://firefly-iii.github.io/kubernetes/
 sources:
