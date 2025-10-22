@@ -19,22 +19,24 @@ firefly-iii:
       DB_USERNAME: firefly
       TZ: US/Eastern
   image:
-    tag: version-6.2.12
+    tag: version-6.4.0
   ingress:
     enabled: true
     hosts:
-      - 'jam.jelly.io'
+      - 'firefly.jamjelly.io'
+  persistence:
+    existingClaim: hl-fireflyiii-firefly-db-storage-claim
 
 importer:
   fireflyiii:
     url: hl-fireflyiii-firefly-iii
-    vanityUrl: "http://jam.jelly.io:80"
+    vanityUrl: "http://firefly.jamjelly.io:80"
   config:
     env:
       TZ: US/Eastern
   image:
-    tag: version-1.6.2
+    tag: version-1.7.10
   ingress:
     enabled: true
     hosts:
-      - 'import.jam.jelly.io'
+      - 'import.jamjelly.io'
